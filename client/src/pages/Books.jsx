@@ -23,15 +23,18 @@ export const Books = () => {
   return (
     <div>
       <h1>Books</h1>
+      <div className='books'>
       {books.map((book)=>(
         <div key={book.id} className='book'>
-          {book.cover && <img src={book.cover} alt={book.title} />} 
+          {book.cover && <img src={book.cover} alt="" />} 
           <h2>{book.title}</h2>
           <p>{book.description}</p>
-          <button>Update</button>
-          <button>Delete</button>
+          <p>{book.price}</p>
+          <button className='update'>Update</button>
+          <button className='delete'>Delete</button>
         </div>
       ))}
+      </div>
       <button><Link to="/add">Add New Book</Link></button>
     </div>
   )
