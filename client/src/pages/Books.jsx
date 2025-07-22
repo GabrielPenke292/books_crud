@@ -39,7 +39,7 @@ export const Books = () => {
           <h2>{book.title}</h2>
           <p>{book.description}</p>
           <p>{book.price}</p>
-          <button className='update'>Update</button>
+          <button className='update'><Link to={`/update/${book.id}`}>Update</Link></button>
           <button className='delete' onClick={()=>handleDelete(book.id)}>Delete</button>
         </div>
       ))}

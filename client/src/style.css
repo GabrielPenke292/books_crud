@@ -45,6 +45,10 @@
     color: white;
     cursor: pointer;
 }
+.update a{
+    text-decoration: none;
+    color: white;
+}
 
 .delete:hover{
     background-color: rgb(245, 107, 107);
