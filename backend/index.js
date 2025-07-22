@@ -22,6 +22,16 @@ app.get("/books", (req, res)=>{
     });
 });
 
+app.post("/books", (req, res)=>{
+    const q = "INSERT INTO books (`title`, `description`, `cover`) VALUES (?)";
+    const values = ['new title test', 'new desc test', 'new_cover.png'];
+
+    db.query(q, [values], (err, data) => {
+        if(err) return res.json(err);
+        return res.json("Book has been created successfully!");
+    });
+});
+
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
 });
