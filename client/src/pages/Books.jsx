@@ -8,23 +8,23 @@ export const Books = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    const fetchBooks = async()=>{
-      try{
+    const fetchBooks = async () => {
+      try {
         const res = await axios.get("http://localhost:3000/books");
         setBooks(res.data);
-      }catch(error){
+      } catch (error) {
         console.error("Error fetching books:", error);
       }
     }
-    
-    fetchBooks(); 
-  }, []); 
 
-  const handleDelete = async(id)=>{
-    try{
+    fetchBooks();
+  }, []);
+
+  const handleDelete = async (id) => {
+    try {
       await axios.delete(`http://localhost:3000/books/${id}`);
-      setBooks(books.filter((book)=>book.id !== id));
-    }catch(error){
+      setBooks(books.filter((book) => book.id !== id));
+    } catch (error) {
       console.error("Error deleting book:", error);
     }
   }
@@ -32,17 +32,22 @@ export const Books = () => {
   return (
     <div>
       <h1>Books</h1>
-      <div className='books'>
-      {books.map((book)=>(
-        <div key={book.id} className='book'>
-          {book.cover && <img src={book.cover} alt="" />} 
-          <h2>{book.title}</h2>
-          <p>{book.description}</p>
-          <p>{book.price}</p>
-          <button className='update'><Link to={`/update/${book.id}`}>Update</Link></button>
-          <button className='delete' onClick={()=>handleDelete(book.id)}>Delete</button>
+      <div className='container'>
+        <div className='books'>
+          {books.map((book) => (
+            <div key={book.id} className='book'>
+              <img src={book.cover ?? "img.png"} alt="" />
+              <h2>{book.title}</h2>
+              <p>{book.description}</p>
+              <p>{book.price}</p>
+              <div className='buttons'>
+                <button className='update'><Link to={`/update/${book.id}`}>Update</Link></button>
+                <button className='delete' onClick={() => handleDelete(book.id)}>Delete</button>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
+        
       </div>
       <button className='addNewBookButton'><Link to="/add">Add New Book</Link></button>
     </div>

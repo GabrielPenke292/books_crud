@@ -45,13 +45,25 @@ export const Update = () => {
   }
 
   return (
-    <div className='form'>
-      <h1>Update the Book</h1>
-      <input type="text" placeholder='Title' name='title' onChange={handleChange} value={book.title || ""}/>
-      <input type="text" placeholder='Description' name='description' onChange={handleChange} value={book.description || ""}/>
-      <input type="number" placeholder='Price' name='price' onChange={handleChange} value={book.price || ""}/>
-      <input type="text" placeholder='Cover' name='cover' onChange={handleChange} value={book.cover || ""}/>
-      <button onClick={handleClick}>Update</button>
+    <div className='App'>
+      <div className='form'>
+        <h1>Update the Book</h1>
+        <input type="text" placeholder='Title' name='title' onChange={handleChange} value={book.title || ""}/>
+        <input type="text" placeholder='Description' name='description' onChange={handleChange} value={book.description || ""}/>
+        <input type="number" placeholder='Price' name='price' onChange={handleChange} value={book.price || ""}/>
+        <input type="text" placeholder='Cover URL' name='cover' onChange={handleChange} value={book.cover || ""}/>
+        <button onClick={handleClick} style={{
+          border: 'none',
+          padding: '12px 24px',
+          background: 'linear-gradient(45deg, #4ecdc4, #44a08d)',
+          color: 'white',
+          borderRadius: '8px',
+          fontSize: '16px',
+          fontWeight: '600',
+          cursor: 'pointer',
+          transition: 'all 0.3s ease'
+        }}>Update Book</button>
+      </div>
     </div>
   )
 }   
