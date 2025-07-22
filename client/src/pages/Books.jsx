@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export const Books = () => {
 
@@ -31,6 +32,7 @@ export const Books = () => {
           <button>Delete</button>
         </div>
       ))}
+      <button><Link to="/add">Add New Book</Link></button>
     </div>
   )
 }
