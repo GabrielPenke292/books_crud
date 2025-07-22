@@ -216,7 +216,7 @@ Este projeto está sob a licença ISC. Veja o arquivo `LICENSE` para mais detalh
 Gabriel Penke - [gabriel.penke292@gmail.com](mailto:gabriel.penke292@gmail.com)
 
 
-Link do projeto: [https://github.com/seu-usuario/books-management](https://github.com/seu-usuario/books-management)
+Link do projeto: [https://github.com/seu-usuario/books-management](https://github.com/GabrielPenke292/books-management)
 
 ---
 
