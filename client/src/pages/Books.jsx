@@ -10,8 +10,7 @@ export const Books = () => {
     const fetchBooks = async()=>{
       try{
         const res = await axios.get("http://localhost:3000/books");
-        // setBooks(res.data);
-        console.log(res.data);
+        setBooks(res.data);
       }catch(error){
         console.error("Error fetching books:", error);
       }
@@ -21,6 +20,17 @@ export const Books = () => {
   }, []); 
 
   return (
-    <div>Books</div>
+    <div>
+      <h1>Books</h1>
+      {books.map((book)=>(
+        <div key={book.id} className='book'>
+          {book.cover && <img src={book.cover} alt={book.title} />} 
+          <h2>{book.title}</h2>
+          <p>{book.description}</p>
+          <button>Update</button>
+          <button>Delete</button>
+        </div>
+      ))}
+    </div>
   )
 }
