@@ -42,7 +42,7 @@ Uma aplicação web moderna para gerenciar uma biblioteca de livros, desenvolvid
 
 ### 1. Clone o repositório
 ```bash
-git clone https://github.com/seu-usuario/books-management.git
+git clone https://github.com/GabrielPenke292/books-management.git
 cd books-management
 ```
 
@@ -213,7 +213,8 @@ Este projeto está sob a licença ISC. Veja o arquivo `LICENSE` para mais detalh
 
 ## 👨‍💻 Autor
 
-Seu Nome - [seu-email@exemplo.com](mailto:seu-email@exemplo.com)
+Gabriel Penke - [gabriel.penke292@gmail.com](mailto:gabriel.penke292@gmail.com)
+
 
 Link do projeto: [https://github.com/seu-usuario/books-management](https://github.com/seu-usuario/books-management)
 
