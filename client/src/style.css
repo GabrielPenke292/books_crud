@@ -69,3 +69,19 @@
 .form input{
     width: 250px;
 }
+
+.addNewBookButton{
+    border: none;
+    padding: 10px;
+    background-color: rgb(53, 216, 211);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.addNewBookButton a{
+    text-decoration: none;
+    color: white;
+}

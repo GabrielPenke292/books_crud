@@ -44,7 +44,7 @@ export const Books = () => {
         </div>
       ))}
       </div>
-      <button><Link to="/add">Add New Book</Link></button>
+      <button className='addNewBookButton'><Link to="/add">Add New Book</Link></button>
     </div>
   )
 }
