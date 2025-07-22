@@ -55,6 +55,15 @@ app.put("/books/:id", (req, res)=>{
     });
 });
 
+app.get("/books/:id", (req, res)=>{
+    const bookId = req.params.id;
+    const q = "SELECT * FROM books WHERE id = ?";
+    db.query(q, [bookId], (err, data) => {
+        if(err) return res.json(err);
+        return res.json(data);
+    });
+});
+
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
 });

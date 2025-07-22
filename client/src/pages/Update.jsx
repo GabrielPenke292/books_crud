@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -9,13 +9,26 @@ export const Update = () => {
     title: "",
     description: "",
     price: "",
-    cover: "",
+    cover: ""
   });
 
   const navigate = useNavigate();
   const location = useLocation();
 
   const bookId = location.pathname.split("/")[2];
+
+  // get book data
+  useEffect(() => {
+    const fetchBook = async()=>{
+      try{
+        const res = await axios.get(`http://localhost:3000/books/${bookId}`);
+        setBook(res.data[0]); // Pegando o primeiro item do array retornado
+      }catch(err){
+        console.log(err);
+      }
+    }
+    fetchBook();
+  }, [bookId]);
 
   const handleChange = (e) => {
     setBook((prev) => ({...prev, [e.target.name]: e.target.value}));
@@ -34,10 +47,10 @@ export const Update = () => {
   return (
     <div className='form'>
       <h1>Update the Book</h1>
-      <input type="text" placeholder='Title' name='title' onChange={handleChange}/>
-      <input type="text" placeholder='Description' name='description' onChange={handleChange}/>
-      <input type="number" placeholder='Price' name='price' onChange={handleChange}/>
-      <input type="text" placeholder='Cover' name='cover' onChange={handleChange}/>
+      <input type="text" placeholder='Title' name='title' onChange={handleChange} value={book.title || ""}/>
+      <input type="text" placeholder='Description' name='description' onChange={handleChange} value={book.description || ""}/>
+      <input type="number" placeholder='Price' name='price' onChange={handleChange} value={book.price || ""}/>
+      <input type="text" placeholder='Cover' name='cover' onChange={handleChange} value={book.cover || ""}/>
       <button onClick={handleClick}>Update</button>
     </div>
   )
